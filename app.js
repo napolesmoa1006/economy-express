@@ -20,9 +20,9 @@ app.set('view engine', 'pug')
 app.use(helmet({
   contentSecurityPolicy: false,
   xDownloadOptions: false,
-  xFrameOptions: { action: "deny" },
+  xFrameOptions: { action: 'deny' },
   xPoweredBy: false,
-  xXssProtection: false,
+  xXssProtection: false
 }))
 
 app.use(logger('dev'))
@@ -36,6 +36,7 @@ app.use('/users', usersRouter)
 
 // libs
 app.use('/bootstrap', express.static(path.join(__dirname, '/node_modules/bootstrap/dist')))
+app.use('/bootstrap-icons', express.static(path.join(__dirname, '/node_modules/bootstrap-icons/font')))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
