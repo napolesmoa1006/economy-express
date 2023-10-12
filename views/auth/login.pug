@@ -1,0 +1,39 @@
+extends ../templates/guest-layout
+
+block content
+  div(class='d-flex justify-content-center')
+    div(class='card  mb-3' style='width: 30rem;')
+      div(class='card-header')
+        | Sign In
+      
+      div(class='card-body')
+        <form>
+          div(class='input-group mb-3')
+            div(class='input-group-prepend')
+              span(class='input-group-text')
+                i(class='bi bi-person-fill')
+            input(type='text' class='form-control' id='inputUsername' aria-describedby='usernameHelp' placeholder='Username')
+            //- small(id='usernameHelp' class='form-text text-muted')
+            //-   | We'll never share your email with anyone else.
+          
+          div(class='input-group mb-4')
+            div(class='input-group-prepend')
+              span(class='input-group-text')
+                i(class='bi bi-lock-fill')
+            input(type='password' class='form-control' id='inputPassword' aria-describedby='usernameHelp' placeholder='Password')
+          
+          div(class='form-group form-check mb-2')
+            input(type='checkbox' class='form-check-input' id='rememberme')
+            label(class='form-check-label' for='rememberme')
+              | Remember me!
+          
+          button(type='submit' class='btn btn-primary mb-3')
+            | Sign In
+
+          div(class='form-group')
+            div(class='col-md-12')
+              div(style="border-top: 1px solid#888; padding-top:15px; font-size:85%")
+                | Don't have an account! 
+                a(href="/register")
+                  | Sign Up Here
+  </form>
