@@ -8,11 +8,24 @@ const logger = require('morgan')
 const cors = require('cors')
 const helmet = require('helmet')
 
+// Swagger
+const swaggerUi = require('swagger-ui-express')
+const swaggerJsDoc = require("swagger-jsdoc")
+const { options } = require('./swagger')
+const specs = swaggerJsDoc(options)
+
+// Routes
 const indexRouter = require('./routes/index')
 const authRouter  = require('./routes/auth')
 const usersRouter = require('./routes/users')
 
 const app = express()
+
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs)
+)
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))

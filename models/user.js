@@ -2,6 +2,39 @@
 
 const { Model } = require('sequelize')
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     UserResponse:
+ *       type: object
+ *       properties:
+ *         success:
+ *           type: boolean
+ *           example: true
+ *         data:
+ *           type: object
+ *           properties:
+ *             user:
+ *               type: object
+ *               properties:
+ *                 id:
+ *                   type: number,
+ *                   example: 2
+ *                 username:
+ *                   type: string
+ *                   example: system
+ *                 nick:
+ *                   type: string
+ *                   example: SysUser
+ *                 createdAt:
+ *                   type: string
+ *                   example: 2020-03-10T04:05:06.157Z
+ *             authToken:
+ *               type: string
+ *               example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTY5NzMxMTI2MiwiZXhwIjoxNjk3MzI1NjYyfQ.8Meff6Tj3Wnt8tVkoZ10L4OTgLxVwrPmv0lc5MhBnAk
+ */
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
     /**
