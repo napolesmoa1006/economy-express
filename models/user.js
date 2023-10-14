@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
         notEmpty: {
           msg: 'This field is required'
         },
-        isAlpha: {
-          msg: 'This field only allow letters'
+        isAlphanumeric: {
+          msg: 'This field only allow letters and numbers'
         },
         len: {
           args: [3, 45],
@@ -37,8 +37,8 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'This field is required'
         },
         len: {
-          args: [6, 45],
-          msg: 'This field only allow values with length between 6 and 45'
+          args: [6, 128],
+          msg: 'This field only allow values with length between 6 and 128'
         }
       }
     },
@@ -50,6 +50,10 @@ module.exports = (sequelize, DataTypes) => {
           msg: 'This field only allow values with length between 3 and 45'
         }
       }
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     }
   }, {
     sequelize,

@@ -1,10 +1,9 @@
 const jwt = require('jsonwebtoken')
 
-const encode = async (user) => {
+const createJWT = async (user) => {
   try {
     const payload = {
-      uid: user._id,
-      userType: user.type
+      uid: user.id
     }
 
     const authToken = await jwt.sign(payload, process.env.SECRET_TOKEN, { expiresIn: '4h' })
@@ -15,4 +14,4 @@ const encode = async (user) => {
   }
 }
 
-module.exports = { encode }
+module.exports = { createJWT }
