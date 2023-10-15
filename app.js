@@ -10,19 +10,19 @@ const helmet = require('helmet')
 
 // Swagger
 const swaggerUi = require('swagger-ui-express')
-const swaggerJsDoc = require("swagger-jsdoc")
+const swaggerJsDoc = require('swagger-jsdoc')
 const { options } = require('./swagger')
 const specs = swaggerJsDoc(options)
 
 // Routes
 const indexRouter = require('./routes/index')
-const authRouter  = require('./routes/auth')
+const authRouter = require('./routes/auth')
 const usersRouter = require('./routes/users')
 
 const app = express()
 
 app.use(
-  "/api-docs",
+  '/api-docs',
   swaggerUi.serve,
   swaggerUi.setup(specs)
 )

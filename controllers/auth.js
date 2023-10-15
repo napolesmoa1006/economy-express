@@ -6,7 +6,7 @@ const { createJWT } = require('../helpers/jwt-create')
 const login = async (req, res) => {
   const { username, password } = req.body
 
-  const user = await User.findOne({ 
+  const user = await User.findOne({
     where: { username }
   })
 
@@ -25,10 +25,10 @@ const login = async (req, res) => {
       authToken
     }
 
-    res.status(200).json({ success: true, data })
+    return res.status(200).json({ success: true, data })
   }
-  else
-    res.status(400).json({ success: false, error: 'Incorrect username or password' })
+
+  res.status(400).json({ success: false, error: 'Incorrect username or password' })
 }
 
 const register = async (req, res) => {
