@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const authController = require('../controllers/auth')
-const { validateAuth } = require('../validators/users')
+const { validateAuth } = require('../validators/auth')
 
 /**
  * @openapi
