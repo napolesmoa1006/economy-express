@@ -9,10 +9,10 @@ const verifyJWT = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(accessToken, process.env.SECRET_TOKEN)
-    req.id = decoded.uid
+    req.body.id = decoded.uid
     return next()
   } catch (error) {
-    return res.status(401).json({ success: false, error })
+    return res.status(401).json({ success: false, error: error.message })
   }
 }
 
