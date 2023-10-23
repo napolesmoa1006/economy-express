@@ -22,7 +22,7 @@ const options = {
       }
     ]
   },
-  apis: ['./routes/*.js', './models/*.js']
+  apis: [`${__dirname}/routes/*.js`, `${__dirname}/models/*.js`]
 }
 
 module.exports = { options }
