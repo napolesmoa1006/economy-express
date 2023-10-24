@@ -25,12 +25,12 @@ module.exports = {
         type: Sequelize.STRING(45)
       },
       active: Sequelize.BOOLEAN,
-      createdAt: {
+      created_at: {
         allowNull: false,
         defaultValue: new Date(),
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         defaultValue: new Date(),
         type: Sequelize.DATE

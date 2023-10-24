@@ -109,8 +109,10 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'User',
-    tableName: 'users' // <-- avoid error: Table 'database.Users' doesn't exist
-    // underscored: true <-- it does not work correctly
+    tableName: 'users', // <-- avoid error: Table 'database.Users' doesn't exist
+    underscored: true,
+    createdAt: 'created_at',
+    updatedAt: 'updated_at'
   })
 
   return User

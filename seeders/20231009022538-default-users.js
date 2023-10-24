@@ -21,8 +21,8 @@ module.exports = {
         username: 'system',
         password: bcrypt.hashSync(process.env.UNUSED_PASSWORD, 10),
         active: true,
-        createdAt: new Date(),
-        updatedAt: new Date()
+        created_at: new Date(),
+        updated_at: new Date()
       }
     ])
   },
