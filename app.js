@@ -28,10 +28,6 @@ app.use(
   swaggerUi.setup(specs)
 )
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
-
 // Use Helmet!
 app.use(helmet({
   contentSecurityPolicy: false,
@@ -53,13 +49,10 @@ app.use('/auth', authRouter)
 app.use('/currencies', currenciesRouter)
 app.use('/users', usersRouter)
 
-// libs
-app.use('/bootstrap', express.static(path.join(__dirname, '/node_modules/bootstrap/dist')))
-app.use('/bootstrap-icons', express.static(path.join(__dirname, '/node_modules/bootstrap-icons/font')))
-
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  next(createError(404))
+  res.status(404).json({ success: false, error: 'Resource not found.' })
+  next()
 })
 
 // error handler
@@ -70,7 +63,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500)
-  res.render('error')
+  res.json({ success: false, error: 'Something bad happened.' })
 })
 
 module.exports = app
