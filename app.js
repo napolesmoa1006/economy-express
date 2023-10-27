@@ -17,6 +17,7 @@ const specs = swaggerJsDoc(options)
 // Routes
 const indexRouter = require('./routes/index')
 const authRouter = require('./routes/auth')
+const currenciesRouter = require('./routes/currencies')
 const usersRouter = require('./routes/users')
 
 const app = express()
@@ -49,6 +50,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/', indexRouter)
 app.use('/auth', authRouter)
+app.use('/currencies', currenciesRouter)
 app.use('/users', usersRouter)
 
 // libs

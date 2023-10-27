@@ -2,6 +2,26 @@
 
 const { Model } = require('sequelize')
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     Currency:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: integer
+ *           example: 37
+ *         abbreviation:
+ *           type: string
+ *           example: CUP
+ *         name:
+ *           type: string
+ *           example: Cuban Peso
+ *         createdAt:
+ *           type: string
+ *           example: 2020-03-10T04:05:06.157Z
+ */
 module.exports = (sequelize, DataTypes) => {
   class Currency extends Model {
     /**

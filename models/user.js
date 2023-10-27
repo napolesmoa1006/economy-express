@@ -62,6 +62,13 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate (models) {
       // define association here
+      User.belongsToMany(models.Currency, {
+        through: {
+          model: models.CurrencyUser
+        },
+        as: 'currencies',
+        foreignKey: 'user_id'
+      })
     }
   }
 
