@@ -39,7 +39,7 @@ module.exports = {
         for (const key in result.currencies) {
           const currency = {
             abbreviation: key,
-            name: currencies[key],
+            name: result.currencies[key],
             created_at: new Date(),
             created_by: sysUser.id,
             updated_at: new Date(),
