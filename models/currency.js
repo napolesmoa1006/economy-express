@@ -37,6 +37,10 @@ module.exports = (sequelize, DataTypes) => {
   Currency.init({
     abbreviation: DataTypes.STRING,
     name: DataTypes.STRING,
+    isDefault: {
+      field: 'is_default',
+      type: DataTypes.BOOLEAN
+    },
     createdBy: {
       field: 'created_by',
       type: DataTypes.INTEGER

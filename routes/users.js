@@ -27,7 +27,7 @@ const { validateUpdate, validateGetById } = require('../validators/users')
  *                 data:
  *                   type: array
  *                   items:
- *                     $ref: '#/components/schemas/UserResponse'
+ *                     $ref: '#/components/schemas/User'
  *       403:
  *         description: Fail
  *         content:
@@ -65,7 +65,7 @@ router.get('/', verifyJWT, usersController.getAll)
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/UserResponse'
+ *               $ref: '#/components/schemas/User'
  *       401:
  *         description: Fail
  *         content:
@@ -135,7 +135,7 @@ router.get('/:id', verifyJWT, validateGetById, usersController.getById)
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/UserResponse'
+ *               $ref: '#/components/schemas/User'
  *       401:
  *         description: Fail
  *         content:

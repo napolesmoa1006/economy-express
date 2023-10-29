@@ -24,7 +24,9 @@ module.exports = {
       nick: {
         type: Sequelize.STRING(45)
       },
-      active: Sequelize.BOOLEAN,
+      is_active: {
+        type: Sequelize.BOOLEAN
+      },
       created_at: {
         allowNull: false,
         defaultValue: new Date(),

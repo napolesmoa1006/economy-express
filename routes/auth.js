@@ -29,7 +29,7 @@ const { validateAuth } = require('../validators/auth')
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/AuthResponse'
+ *               $ref: '#/components/schemas/Auth'
  *       400:
  *         description: Fail
  *         content:
@@ -71,7 +71,7 @@ router.post('/login', validateAuth, authController.login)
  *         content:
  *           application/json:
  *             schema:
- *               $ref: '#/components/schemas/AuthResponse'
+ *               $ref: '#/components/schemas/Auth'
  *       400:
  *         description: Fail
  *         content:

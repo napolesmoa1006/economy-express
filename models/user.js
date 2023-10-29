@@ -6,7 +6,7 @@ const { Model } = require('sequelize')
  * @openapi
  * components:
  *   schemas:
- *     AuthResponse:
+ *     Auth:
  *       type: object
  *       properties:
  *         success:
@@ -16,7 +16,7 @@ const { Model } = require('sequelize')
  *           type: object
  *           properties:
  *             user:
- *               $ref: '#/components/schemas/UserResponse'
+ *               $ref: '#/components/schemas/User'
  *             authToken:
  *               type: string
  *               example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjIsImlhdCI6MTY5NzMxMTI2MiwiZXhwIjoxNjk3MzI1NjYyfQ.8Meff6Tj3Wnt8tVkoZ10L4OTgLxVwrPmv0lc5MhBnAk
@@ -26,7 +26,7 @@ const { Model } = require('sequelize')
  * @openapi
  * components:
  *   schemas:
- *     UserResponse:
+ *     User:
  *       type: object
  *       properties:
  *         id:
@@ -109,9 +109,10 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    active: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true
+    isActive: {
+      defaultValue: true,
+      field: 'is_active',
+      type: DataTypes.BOOLEAN
     }
   }, {
     sequelize,

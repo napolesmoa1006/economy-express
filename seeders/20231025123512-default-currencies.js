@@ -40,6 +40,7 @@ module.exports = {
           const currency = {
             abbreviation: key,
             name: result.currencies[key],
+            is_default: true,
             created_at: new Date(),
             created_by: sysUser.id,
             updated_at: new Date(),

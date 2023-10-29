@@ -7,7 +7,7 @@ const login = async (req, res) => {
   const { username, password } = req.body
 
   const user = await User.findOne({
-    where: { username }
+    where: { username, isActive: true }
   })
 
   const valid = user && bcrypt.compareSync(password, user.password)
@@ -36,7 +36,7 @@ const register = async (req, res) => {
 
   try {
     password = bcrypt.hashSync(password, 10)
-    const obj = User.build({ username, password, active: true })
+    const obj = User.build({ username, password, isActive: true })
     const user = await obj.save()
     const authToken = await createJWT(user)
 
