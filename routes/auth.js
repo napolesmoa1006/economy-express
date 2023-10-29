@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const authController = require('../controllers/auth')
-const { validateAuth } = require('../validators/auth')
+const { validateLogin, validateRegister } = require('../validators/auth')
 
 /**
  * @openapi
@@ -44,7 +44,7 @@ const { validateAuth } = require('../validators/auth')
  *                   type: string
  *                   example: Incorrect username or password
  */
-router.post('/login', validateAuth, authController.login)
+router.post('/login', validateLogin, authController.login)
 
 /**
  * @openapi
@@ -86,6 +86,6 @@ router.post('/login', validateAuth, authController.login)
  *                   type: string
  *                   example: The password must be more than 6 characters
  */
-router.post('/register', validateAuth, authController.register)
+router.post('/register', validateRegister, authController.register)
 
 module.exports = router
