@@ -3,7 +3,7 @@ const router = express.Router()
 
 const usersController = require('../controllers/users')
 const { verifyJWT } = require('../middlewares/jwt-verify')
-const { validateUpdate } = require('../validators/users')
+const { validateUpdate, validateGetById } = require('../validators/users')
 
 /**
  * @openapi
@@ -93,7 +93,7 @@ router.get('/', verifyJWT, usersController.getAll)
  *                   type: string
  *                   example: No access token provided
  */
-router.get('/:id', verifyJWT, usersController.getById)
+router.get('/:id', verifyJWT, validateGetById, usersController.getById)
 
 /**
  * @openapi

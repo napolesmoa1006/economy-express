@@ -29,10 +29,6 @@ const getAll = async (req, res) => {
 const getById = async (req, res) => {
   const { id } = req.params
 
-  if (isNaN(id)) {
-    return res.status(400).json({ success: false, error: 'User ID must be a number' })
-  }
-
   try {
     const user = await User.findByPk(id, {
       attributes: { exclude: ['password', 'active', 'updatedAt'] }
