@@ -1,16 +1,18 @@
 require('dotenv').config()
+const { Op } = require('sequelize')
 
-const { User } = require('../models')
 const { Currency } = require('../models')
 
 const getAll = async (req, res) => {
-  const { uid } = req.body
-
+  const { id: uid } = req.body
+  
   try {
-    const sysUser = await User.findOne({ where: { username: process.env.DEFAULT_USER_USERNAME } })
     const data = await Currency.findAll({
       where: {
-        created_by: [sysUser.id, uid]
+        [Op.or]: {
+          created_by: uid,
+          is_default: true
+        }
       },
       attributes: ['id', 'abbreviation', 'name', 'created_at']
     })
@@ -29,7 +31,7 @@ const getById = async (req, res) => {
     const currency = Currency.findByPk(id)
 
     if (currency === null) {
-      return res.status(404).json({ success: false, error: 'Currency not found' })
+      return res.status(404).json({ success: false, error: 'Currency not found.' })
     }
 
     if (uid !== currency.created_by) {
