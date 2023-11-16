@@ -5,7 +5,7 @@ const { User } = require('../models')
 const index = async (req, res) => {
   try {
     const data = await User.findAll({
-      attributes: { exclude: ['password', 'updatedAt'] }
+      attributes: { exclude: ['password', 'updated_at'] }
     })
 
     res.status(200).json({ message: 'Success', data })
@@ -17,7 +17,7 @@ const index = async (req, res) => {
 const getAll = async (req, res) => {
   try {
     const data = await User.findAll({
-      attributes: { exclude: ['password', 'active', 'updatedAt'] }
+      attributes: { exclude: ['password', 'active', 'updated_at'] }
     })
 
     res.status(200).json({ success: true, data })
@@ -31,7 +31,7 @@ const getById = async (req, res) => {
 
   try {
     const user = await User.findByPk(id, {
-      attributes: { exclude: ['password', 'active', 'updatedAt'] }
+      attributes: { exclude: ['password', 'isActive', 'updated_at'] }
     })
 
     if (user === null) {

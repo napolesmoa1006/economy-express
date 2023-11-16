@@ -14,7 +14,7 @@ const getAll = async (req, res) => {
           is_default: true
         }
       },
-      attributes: ['id', 'name', 'is_expense', 'created_at']
+      attributes: ['id', 'name', ['is_expense', 'isExpense'], ['created_at', 'createdAt']]
     })
 
     res.status(200).json({ success: true, data })
@@ -41,8 +41,8 @@ const getById = async (req, res) => {
     const data = {
       id: category.id,
       name: category.name,
-      is_expense: category.is_expense,
-      created_at: category.created_at
+      isExpense: category.is_expense,
+      createdAt: category.created_at
     }
 
     res.status(200).json({ success: true, data })

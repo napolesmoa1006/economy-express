@@ -14,7 +14,7 @@ const getAll = async (req, res) => {
           is_default: true
         }
       },
-      attributes: ['id', 'abbreviation', 'name', 'created_at']
+      attributes: ['id', 'abbreviation', 'name', ['created_at', 'createdAt']]
     })
 
     res.status(200).json({ success: true, data })
@@ -34,7 +34,7 @@ const getById = async (req, res) => {
       return res.status(404).json({ success: false, error: 'Currency not found.' })
     }
 
-    if (uid !== currency.created_by) {
+    if (uid !== currency.createdBy) {
       return res.status(400).json({ success: false, error: 'You don\'t have access to this resource.' })
     }
 
@@ -42,7 +42,7 @@ const getById = async (req, res) => {
       id: currency.id,
       abbreviation: currency.abbreviation,
       name: currency.name,
-      created_at: currency.created_at
+      createdAt: currency.createdAt
     }
 
     res.status(200).json({ success: true, data })
