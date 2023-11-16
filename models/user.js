@@ -67,7 +67,7 @@ module.exports = (sequelize, DataTypes) => {
           model: models.CurrencyUser
         },
         as: 'currencies',
-        foreignKey: 'user_id'
+        foreignKey: 'userId'
       })
     }
   }

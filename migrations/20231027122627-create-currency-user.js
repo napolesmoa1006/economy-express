@@ -24,14 +24,18 @@ module.exports = {
         }
       },
       total_balance: {
+        allowNull: false,
         defaultValue: 0,
         type: Sequelize.DOUBLE
       },
       is_active: {
+        allowNull: false,
+        defaultValue: true,
         type: Sequelize.BOOLEAN
       },
       created_at: {
         allowNull: false,
+        defaultValue: new Date(),
         type: Sequelize.DATE
       },
       created_by: {
@@ -40,6 +44,7 @@ module.exports = {
       },
       updated_at: {
         allowNull: false,
+        defaultValue: new Date(),
         type: Sequelize.DATE
       },
       updated_by: {

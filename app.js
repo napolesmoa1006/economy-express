@@ -19,6 +19,7 @@ const indexRouter = require('./routes/index')
 const authRouter = require('./routes/auth')
 const categoriesRouter = require('./routes/categories')
 const currenciesRouter = require('./routes/currencies')
+const currencyUserRouter = require('./routes/currency-user')
 const usersRouter = require('./routes/users')
 
 const app = express()
@@ -49,6 +50,7 @@ app.use('/', indexRouter)
 app.use('/auth', authRouter)
 app.use('/categories', categoriesRouter)
 app.use('/currencies', currenciesRouter)
+app.use('/currency-user', currencyUserRouter)
 app.use('/users', usersRouter)
 
 // catch 404 and forward to error handler

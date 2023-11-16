@@ -2,6 +2,27 @@
 
 const { Model } = require('sequelize')
 
+/**
+ * @openapi
+ * components:
+ *   schemas:
+ *     CurrencyUser:
+ *       type: object
+ *       properties:
+ *         currency:
+ *           $ref: '#/components/schemas/Currency'
+ *         user:
+ *           $ref: '#/components/schemas/User'
+ *         total_balance:
+ *           type: number
+ *           example: 1800.75
+ *         is_active:
+ *           type: boolean
+ *           example: true
+ *         createdAt:
+ *           type: string
+ *           example: 2020-03-10T04:05:06.157Z
+ */
 module.exports = (sequelize, DataTypes) => {
   class CurrencyUser extends Model {
     /**
@@ -16,17 +37,21 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   CurrencyUser.init({
-    currency_id: {
+    currencyId: {
+      field: 'currency_id',
       type: DataTypes.INTEGER
     },
-    user_id: {
+    userId: {
+      field: 'user_id',
       type: DataTypes.INTEGER
     },
-    total_balance: {
+    totalBalance: {
+      field: 'total_balance',
       type: DataTypes.DOUBLE
     },
-    is_active: {
+    isActive: {
       defaultValue: true,
+      field: 'is_active',
       type: DataTypes.BOOLEAN
     },
     createdBy: {
