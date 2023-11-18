@@ -28,20 +28,20 @@ const getById = async (req, res) => {
   const { id: uid } = req.body
 
   try {
-    const category = Category.findByPk(id)
+    const category = await Category.findByPk(id)
 
     if (category === null) {
       return res.status(404).json({ success: false, error: 'Category not found.' })
     }
 
-    if (uid !== category.created_by) {
+    if (!category.isDefault && uid !== category.createdBy) {
       return res.status(400).json({ success: false, error: 'You don\'t have access to this resource.' })
     }
 
     const data = {
       id: category.id,
       name: category.name,
-      isExpense: category.is_expense,
+      isExpense: category.isExpense,
       createdAt: category.created_at
     }
 

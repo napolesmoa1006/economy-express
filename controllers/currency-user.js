@@ -15,7 +15,7 @@ const create = async (req, res) => {
       return res.status(404).json({ success: false, error: 'Currency not found.' })
     }
 
-    if (!currency.isDefault && uid !== currency.created_by) {
+    if (!currency.isDefault && uid !== currency.createdBy) {
       return res.status(400).json({ success: false, error: 'You don\'t have access to this resource.' })
     }
 

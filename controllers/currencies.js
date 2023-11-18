@@ -28,13 +28,13 @@ const getById = async (req, res) => {
   const { id: uid } = req.body
 
   try {
-    const currency = Currency.findByPk(id)
+    const currency = await Currency.findByPk(id)
 
     if (currency === null) {
       return res.status(404).json({ success: false, error: 'Currency not found.' })
     }
 
-    if (uid !== currency.createdBy) {
+    if (!currency.isDefault && uid !== currency.createdBy) {
       return res.status(400).json({ success: false, error: 'You don\'t have access to this resource.' })
     }
 
