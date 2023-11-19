@@ -2,6 +2,9 @@
 
 An API to track personal income and expenses.
 
+## Languages and Frameworks Used
+[![Languages](https://skillicons.dev/icons?i=js,express,nodejs,sequelize,mysql)](https://skillicons.dev)
+
 ## Get started
 
 ### Prerequisites
@@ -16,7 +19,7 @@ Be sure you have installed
 git clone https://github.com/napolesmoa1006/economy-express.git
 ```
 
-### Install Dependencies
+### Install dependencies
 
 ```sh
 npm install
